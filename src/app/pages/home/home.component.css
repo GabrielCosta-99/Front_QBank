@@ -1,0 +1,89 @@
+/* Estilo geral */
+.container {
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Altura do contêiner para ocupar toda a altura da tela */
+    display: flex; /* Define que o contêiner usará o layout flexbox */
+    flex-direction: column; /* Organiza os itens dentro do contêiner na direção de coluna */
+    align-items: flex-start; /* Alinha os itens ao início (esquerda) do eixo horizontal */
+    justify-content: flex-start; /* Alinha os itens ao topo (início) do eixo vertical */
+    background-color: #48920c; /* Cor de fundo do contêiner */
+    padding: 20px; /* Espaçamento interno de 20px em todos os lados */
+}
+
+/* Estilo do cabeçalho */
+header {
+    display: flex; /* Layout flexbox no cabeçalho */
+    align-items: center; /* Alinha os itens (título e botão) verticalmente ao centro */
+    justify-content: flex-start; /* Alinha os itens ao início (esquerda) do cabeçalho */
+    width: 100%; /* O cabeçalho ocupa 100% da largura disponível */
+    max-width: 600px; /* O cabeçalho não pode ultrapassar 600px de largura */
+    margin-bottom: 0; /* Remove a margem abaixo do cabeçalho */
+}
+
+/* Estilo do título */
+header h1 {
+    font-size: 2.8em; /* Define o tamanho da fonte como 1.8 vezes o tamanho base */
+    margin: 0; /* Remove qualquer margem padrão ao redor do título */
+    color: #333; /* Define a cor do texto como um cinza escuro */
+}
+
+/* Estilo do botão de menu */
+.menu-button {
+    background-color: #65768a; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 10px 15px; /* Espaçamento interno (10px em cima e embaixo, 15px nas laterais) */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
+    border-radius: 4px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Animação suave para a mudança de cor */
+}
+
+.menu-button:hover {
+    background-color: #0056b3; /* Altera a cor de fundo para azul escuro quando o botão é hover */
+}
+
+/* Estilo do menu lateral */
+.menu {
+    position: absolute; /* Define o posicionamento absoluto em relação ao contêiner pai */
+    top: 0%; /* O menu será posicionado 60px abaixo do topo da tela */
+    left: 0%; /* O menu será posicionado 10px da borda esquerda da tela */
+    background-color: white; /* Cor de fundo do menu (branco) */
+    border: 1px solid #ddd; /* Borda fina e cinza claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor do menu */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 200px; /* Largura fixa do menu (200px) */
+    padding: 10px; /* Espaçamento interno de 10px em todos os lados */
+}
+
+.menu ul {
+    list-style: none; /* Remove os marcadores padrão das listas */
+    padding: 0; /* Remove o preenchimento interno da lista */
+    margin: 0; /* Remove a margem externa da lista */
+}
+
+.menu ul li {
+    margin: 10px 0; /* Adiciona uma margem de 10px em cima e embaixo dos itens */
+}
+
+.menu ul li a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #007bff; /* Define a cor do texto do link como azul */
+    font-size: 16px; /* Define o tamanho da fonte dos links */
+}
+
+.menu ul li a:hover {
+    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse sobre o link */
+}
+
+/* Estilo do conteúdo principal */
+main {
+    text-align: center; /* Alinha o texto à esquerda */
+    position: flex-start; /* Define o posicionamento absoluto */
+    top: 0px; /* Coloca o conteúdo um pouco abaixo do cabeçalho */
+    left: 10px; /* Coloca o conteúdo um pouco afastado da esquerda */
+    margin: 20px; /* Adiciona uma margem de 20px para afastar o conteúdo das bordas */
+}
+
+  
+  
