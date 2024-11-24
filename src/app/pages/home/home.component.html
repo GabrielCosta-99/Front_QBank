@@ -1,1 +1,27 @@
-<button class="menu-button">Menu</button>
+<button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
+<div class="container">
+    <header>
+      <button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
+      <h1>GPA </h1>
+      <h2> Group Finance,</h2>
+      <h3> um banco feito para você.</h3>
+    </header>
+  
+    <aside *ngIf="menuOpen" class="menu">
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </aside>
+  
+    <main>
+      <p>Conteúdo principal aqui.</p>
+    </main>
+  </div>
+
+  <div class="container">
+    <img src="assets/WhatsApp Image 2024-11-24 at 17.32.48 (1).jpg" alt="Imagem centralizada" class="imagem-centralizada">
+  </div>
+  
