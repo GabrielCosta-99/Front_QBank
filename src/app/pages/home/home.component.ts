@@ -3,6 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importe o FormsModule
 import { AuthService } from '../../services/auth.service';
 
+// Interface para tipar os dados do usuário
+export interface UserData {
+  username: string;
+  email: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -27,32 +34,35 @@ import { AuthService } from '../../services/auth.service';
     </aside>
 
     <main>
-      <form (ngSubmit)="cadastrarUsuario()">
+      <form (ngSubmit)="cadastrarUsuario()" #form="ngForm">
         <label for="username">Usuário:</label>
-        <input id="username" type="text" [(ngModel)]="userData.username" name="username" required />
+        <input id="username" type="text" [(ngModel)]="userData.username" name="username" required #username="ngModel" />
 
         <label for="email">Email:</label>
-        <input id="email" type="email" [(ngModel)]="userData.email" name="email" required />
+        <input id="email" type="email" [(ngModel)]="userData.email" name="email" required #email="ngModel" />
 
         <label for="password">Senha:</label>
-        <input id="password" type="password" [(ngModel)]="userData.password" name="password" required />
+        <input id="password" type="password" [(ngModel)]="userData.password" name="password" required #password="ngModel" />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" [disabled]="!form.valid">Cadastrar</button>
       </form>
+
+      <!-- Exibe a mensagem de erro se houver -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </main>
   </div>
-`,
+  `,
   styleUrls: ['./home.component.css'],
   imports: [CommonModule, FormsModule], // Adicione o FormsModule aqui
 })
 export class HomeComponent {
   menuOpen = false;
-
-  userData: any = {
+  userData: UserData = {
     username: '',
-    password: '',
     email: '',
+    password: '',
   };
+  errorMessage: string = '';
 
   constructor(private authService: AuthService) {}
 
@@ -64,9 +74,11 @@ export class HomeComponent {
     this.authService.cadastrarUsuario(this.userData).subscribe(
       (response) => {
         console.log('Usuário cadastrado com sucesso!', response);
+        this.errorMessage = ''; // Limpa a mensagem de erro
       },
       (error) => {
         console.error('Erro ao cadastrar usuário', error);
+        this.errorMessage = 'Erro ao cadastrar usuário. Tente novamente!';
       }
     );
   }
