@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../services/auth.service'; // Ajuste o caminho conforme necessário
+import { FormsModule } from '@angular/forms'; // Importe o FormsModule
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -42,12 +43,11 @@ import { AuthService } from '../../services/auth.service'; // Ajuste o caminho c
   </div>
 `,
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], // Adicione o FormsModule aqui
 })
 export class HomeComponent {
   menuOpen = false;
 
-  // Propriedade userData adicionada
   userData: any = {
     username: '',
     password: '',
