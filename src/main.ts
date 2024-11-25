@@ -1,7 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; // Correção
 import { AppComponent } from './app/app.component';
 import { HomeComponent } from './app/pages/home/home.component';
 import { LoginComponent } from './app/pages/login/login.component';
@@ -9,7 +9,6 @@ import { ClientsComponent } from './app/pages/clients/clients.component';
 import { CadastrarUsuarioComponent } from './app/pages/cadastrar-usuario/cadastrar-usuario.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './app/services/auth.service';
 
 const routes = [
   { path: '', component: HomeComponent }, // Página inicial
@@ -21,8 +20,6 @@ const routes = [
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes), 
-    provideHttpClient(), 
-    importProvidersFrom(HttpClientModule, CommonModule, FormsModule),
-    AuthService, // Adiciona AuthService explicitamente (caso necessário)
+    importProvidersFrom(HttpClientModule, CommonModule, FormsModule), // Correção aqui
   ],
 });

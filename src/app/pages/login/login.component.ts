@@ -17,8 +17,8 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
-    this.authService.login(this.user, this.password).subscribe(
-      response => this.router.navigate(['/clients']),
+    this.authService.login({ username: this.user, password: this.password }).subscribe(
+      (response) => this.router.navigate(['/clients']),
       error => console.error('Erro ao logar:', error)
     );
   }
