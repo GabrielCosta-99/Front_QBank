@@ -9,18 +9,20 @@ import { ClientsComponent } from './app/pages/clients/clients.component';
 import { CadastrarUsuarioComponent } from './app/pages/cadastrar-usuario/cadastrar-usuario.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { AuthService } from './app/services/auth.service';
 
 const routes = [
   { path: '', component: HomeComponent }, // Página inicial
   { path: 'clients', component: ClientsComponent }, // Página de clientes
   { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent }, // Página de cadastro de usuário
+  { path: 'login', component: LoginComponent },  // Rota para o login (se necessário)
 ];
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(routes), // Configuração das rotas
-    provideHttpClient(), // Habilita o HttpClient para chamadas à API
-    importProvidersFrom(CommonModule, FormsModule), // Importa CommonModule e FormsModule
+    provideRouter(routes), 
+    provideHttpClient(), 
+    importProvidersFrom(HttpClientModule, CommonModule, FormsModule),
+    AuthService, // Adiciona AuthService explicitamente (caso necessário)
   ],
 });
