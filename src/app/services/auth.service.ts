@@ -16,7 +16,7 @@ export interface UserData {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // Globalmente disponível
 })
 export class AuthService {
   private apiUrl = 'http://localhost:5049/api/cadastrousuario'; // URL da API de cadastro
