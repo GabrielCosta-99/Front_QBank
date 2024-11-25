@@ -35,10 +35,23 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   menuOpen = false;
+  constructor(private authService: AuthService) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
   
-  
+  // Função para cadastrar o usuário com os dados fornecidos no formulário
+  cadastrarUsuario() {
+    this.authService.cadastrarUsuario(this.userData).subscribe(
+      (response) => {
+        console.log('Usuário cadastrado com sucesso!', response);
+      },
+      (error) => {
+        console.error('Erro ao cadastrar usuário', error);
+      }
+    );
+  }
 }
+  
+
