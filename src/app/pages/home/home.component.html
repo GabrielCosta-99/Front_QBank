@@ -7,21 +7,20 @@
       <h3> um banco feito para você.</h3>
     </header>
   
-    <aside *ngIf="menuOpen" class="menu">
+  <!-- Menu Lateral -->
+  <aside *ngIf="menuOpen" class="menu">
+    <nav>
       <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Reports</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/clients" routerLinkActive="active">Clientes</a></li>
+        <li><a routerLink="/cadastrar-usuario" routerLinkActive="active">Cadastrar Usuário</a></li>
       </ul>
-    </aside>
-  
-    <main>
-      <p>Conteúdo principal aqui.</p>
-    </main>
-  </div>
+    </nav>
+  </aside>
 
-  <div class="container">
-    <img src="assets/WhatsApp Image 2024-11-24 at 17.32.48 (1).jpg" alt="Imagem centralizada" class="imagem-centralizada">
-  </div>
+ 
+  <main>
+    <router-outlet></router-outlet> <!-- Aqui o conteúdo da rota será renderizado -->
+  </main>
+</div>
   

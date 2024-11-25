@@ -10,6 +10,7 @@ import { CadastrarUsuarioComponent } from './app/pages/cadastrar-usuario/cadastr
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
 const routes = [
   { path: '', component: HomeComponent }, // Página inicial
   { path: 'clients', component: ClientsComponent }, // Página de clientes
