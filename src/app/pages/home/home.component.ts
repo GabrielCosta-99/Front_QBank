@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service'; // Ajuste o caminho conforme necessário
 
 @Component({
   selector: 'app-home',
@@ -25,23 +26,40 @@ import { CommonModule } from '@angular/common';
     </aside>
 
     <main>
-      <p></p>
+      <form (ngSubmit)="cadastrarUsuario()">
+        <label for="username">Usuário:</label>
+        <input id="username" type="text" [(ngModel)]="userData.username" name="username" required />
+
+        <label for="email">Email:</label>
+        <input id="email" type="email" [(ngModel)]="userData.email" name="email" required />
+
+        <label for="password">Senha:</label>
+        <input id="password" type="password" [(ngModel)]="userData.password" name="password" required />
+
+        <button type="submit">Cadastrar</button>
+      </form>
     </main>
   </div>
 `,
-
   styleUrls: ['./home.component.css'],
   imports: [CommonModule],
 })
 export class HomeComponent {
   menuOpen = false;
+
+  // Propriedade userData adicionada
+  userData: any = {
+    username: '',
+    password: '',
+    email: '',
+  };
+
   constructor(private authService: AuthService) {}
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-  
-  // Função para cadastrar o usuário com os dados fornecidos no formulário
+
   cadastrarUsuario() {
     this.authService.cadastrarUsuario(this.userData).subscribe(
       (response) => {
@@ -53,5 +71,3 @@ export class HomeComponent {
     );
   }
 }
-  
-
