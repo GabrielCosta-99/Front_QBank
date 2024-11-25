@@ -10,6 +10,10 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  login(user: string, password: string): Observable<any> {
+    return this.http.post('API_ENDPOINT', { user, password });
+  }  
+
   cadastrarUsuario(userData: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
