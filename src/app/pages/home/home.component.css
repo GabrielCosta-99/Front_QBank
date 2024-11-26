@@ -22,8 +22,15 @@
     }
   
     .menu {
-      top: 0; /* Garante que o menu fique no topo em telas pequenas */
-      width: 100%; /* Faz o menu ocupar toda a largura */
-    }
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 200px;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
   }
   
