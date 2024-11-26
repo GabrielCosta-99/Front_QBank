@@ -1,119 +1,29 @@
-/* Estilo geral do contêiner */
-.container {
-    font-family: Arial, sans-serif;
-    display: flex; /* Define que o contêiner usará o layout flexbox */
-    flex-direction: column; /* Organiza os itens dentro do contêiner na direção de coluna */
-    align-items: flex-start; /* Alinha os itens ao início (esquerda) do eixo horizontal */
-    justify-content: flex-start; /* Alinha os itens ao topo (início) do eixo vertical */
-    height: 100vh; /* Altura do contêiner para ocupar toda a altura da tela */
-    background-color: #48920c; /* Cor de fundo do contêiner */
-    padding: 20px; /* Espaçamento interno de 20px em todos os lados */
-}
-
-/* Centralizar conteúdo dentro do contêiner */
-.container-centralizada {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Garante que a altura seja 100% da tela */
-    background-color: #168f26; /* Cor de fundo opcional */
-}
-
-/* Estilo do cabeçalho */
-header {
-    display: flex; /* Layout flexbox no cabeçalho */
-    align-items: center; /* Alinha os itens (título e botão) verticalmente ao centro */
-    justify-content: flex-start; /* Alinha os itens ao início (esquerda) do cabeçalho */
-    width: 100%; /* O cabeçalho ocupa 100% da largura disponível */
-    max-width: 600px; /* O cabeçalho não pode ultrapassar 600px de largura */
-    margin-bottom: 20px; /* Espaçamento abaixo do cabeçalho */
-}
-
-/* Estilo do título h1 */
-header h1 {
-    font-size: 2.9em; /* Tamanho da fonte como 2.8 vezes o tamanho base */
-    margin: 0; /* Remove qualquer margem padrão ao redor do título */
-    color: #333; /* Cor do texto como cinza escuro */
-    margin-right: 2px; /* Ajusta o espaçamento à direita */
-}
-
-/* Estilo do título h2 */
-header h2 {
-    font-size: 1.1em; /* Tamanho de fonte um pouco menor que o h1 */
-    margin-right: 0px; /* Ajusta o espaçamento à direita */
-    margin-left: 2px; /* Ajusta o espaçamento à esquerda */
-}
-
-/* Estilo do título h3 */
-header h3 {
-    font-size: 1.0em; /* Tamanho de fonte um pouco menor que o h2 */
-    margin-left: 3px; /* Ajusta o espaçamento à esquerda */
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-/* Estilo do botão de menu */
-.menu-button {
-    background-color: #65768a; /* Cor de fundo */
-    color: white; /* Cor do texto */
-    border: none; /* Sem borda */
-    padding: 10px 10px; /* Espaçamento interno (10px em cima e embaixo, 15px nas laterais) */
-    font-size: 16px; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
-    border-radius: 12px; /* Bordas arredondadas */
-    transition: background-color 0.3s ease; /* Animação suave para a mudança de cor */
-}
-
-.menu-button:hover {
-    background-color: #0056b3; /* Altera a cor de fundo para azul escuro quando o botão é hover */
-}
-
-/* Estilo do menu lateral */
-.menu {
-    position: fixed; /* Posiciona o menu de forma fixa na tela */
-    top: 60px; /* Coloca o menu abaixo do cabeçalho */
-    left: 0; /* Posiciona o menu na lateral esquerda */
-    background-color: white; /* Cor de fundo do menu */
-    border: 1px solid #ddd; /* Borda fina ao redor do menu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    border-radius: 8px; /* Bordas arredondadas */
-    width: 200px; /* Largura fixa do menu */
-    padding: 10px; /* Espaçamento interno */
-    display: block; /* Garante que o menu será exibido */
-    z-index: 10; /* Garante que o menu apareça acima de outros elementos */
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu ul li {
-    margin: 15px 0;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: #02070c;
-    font-size: 16px;
-}
-
-.menu ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Imagem centralizada */
-.imagem-centralizada {
-    max-width: 100%; /* Ajusta a largura máxima da imagem */
-    max-height: 100%; /* Ajusta a altura máxima da imagem */
-    object-fit: contain; /* Faz a imagem manter a proporção */
-}
-
-/* Estilo do conteúdo principal */
-main {
-    text-align: center; /* Alinha o texto ao centro */
-    margin-top: 20px; /* Espaçamento superior */
-    margin-left: 10px; /* Coloca o conteúdo um pouco afastado da esquerda */
-    margin-right: 10px; /* Adiciona margem à direita */
-    margin-bottom: 30px; /* Adiciona margem abaixo */
-}
+/* Destaque para o link ativo no menu */
+.menu ul li a.active {
+    font-weight: bold;
+    color: #48920c; /* Destaque visual */
+  }
+  
+  /* Menu lateral responsivo */
+  .menu {
+    width: 80%; /* Em telas menores, ocupa 80% da largura */
+    max-width: 300px; /* Em telas maiores, não passa de 300px */
+  }
+  
+  /* Tornar o layout responsivo */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    header {
+      flex-direction: column; /* Empilha itens em telas menores */
+      align-items: center; /* Centraliza os itens no cabeçalho */
+    }
+  
+    .menu {
+      top: 0; /* Garante que o menu fique no topo em telas pequenas */
+      width: 100%; /* Faz o menu ocupar toda a largura */
+    }
+  }
+  

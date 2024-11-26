@@ -1,26 +1,24 @@
-<button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
 <div class="container">
-    <header>
-      <button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
-      <h1>GPA </h1>
-      <h2> Group Finance,</h2>
-      <h3> um banco feito para você.</h3>
-    </header>
-  
+  <header>
+    <button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
+    <h1>GPA</h1>
+    <h2>Group Finance,</h2>
+    <h3>um banco feito para você.</h3>
+  </header>
+
   <!-- Menu Lateral -->
   <aside *ngIf="menuOpen" class="menu">
     <nav>
       <ul>
         <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/clients" routerLinkActive="active">Clientes</a></li>
         <li><a routerLink="/cadastrar-usuario" routerLinkActive="active">Cadastrar Usuário</a></li>
+        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
       </ul>
     </nav>
   </aside>
 
- 
+  <!-- Área dinâmica onde as rotas serão carregadas -->
   <main>
-    <router-outlet></router-outlet> <!-- Aqui o conteúdo da rota será renderizado -->
+    <router-outlet></router-outlet>
   </main>
 </div>
-  
