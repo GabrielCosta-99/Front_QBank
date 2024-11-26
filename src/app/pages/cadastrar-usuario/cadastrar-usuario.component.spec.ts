@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CadastrarUsuarioComponent } from './cadastrar-usuario.component';
+import { HttpClientModule } from '@angular/common/http'; // Para fazer requisições HTTP nos testes
+import { RouterTestingModule } from '@angular/router/testing'; // Para testar navegação de rotas
 
 describe('CadastrarUsuarioComponent', () => {
   let component: CadastrarUsuarioComponent;
@@ -8,9 +9,12 @@ describe('CadastrarUsuarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CadastrarUsuarioComponent]
-    })
-    .compileComponents();
+      imports: [
+        CadastrarUsuarioComponent,  // Componente standalone diretamente
+        HttpClientModule,  // Necessário para testar requisições HTTP
+        RouterTestingModule // Se você precisar testar navegação de rotas
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CadastrarUsuarioComponent);
     component = fixture.componentInstance;
@@ -20,4 +24,6 @@ describe('CadastrarUsuarioComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // Testes adicionais podem ser adicionados aqui
 });

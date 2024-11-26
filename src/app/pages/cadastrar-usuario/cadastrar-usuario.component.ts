@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule
   template: `
     <div class="form-container">
       <h2>Cadastrar Usuário</h2>
-      <form (ngSubmit)="cadastrarUsuario()">
+      <form (ngSubmit)="cadastrarUsuario()" #usuarioForm="ngForm">
         <div>
           <label for="nome">Nome:</label>
           <input
@@ -30,6 +30,8 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule
             [(ngModel)]="usuario.CPF"
             name="cpf"
             required
+            minlength="11"
+            maxlength="11"
           />
         </div>
         <div>
@@ -50,6 +52,7 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule
             [(ngModel)]="usuario.Senha"
             name="senha"
             required
+            minlength="6"
           />
         </div>
         <div>
@@ -60,7 +63,7 @@ import { FormsModule } from '@angular/forms'; // Importar FormsModule
           </select>
         </div>
         <div class="buttons">
-          <button type="submit" class="save-button">Salvar</button>
+          <button type="submit" class="save-button" [disabled]="!usuarioForm.form.valid">Salvar</button>
           <button type="button" class="menu-button" (click)="voltarAoMenu()">Voltar ao Menu</button>
         </div>
       </form>
@@ -94,6 +97,8 @@ export class CadastrarUsuarioComponent {
           this.mensagemSucesso = 'Usuário cadastrado com sucesso!';
         }
         this.mensagemErro = null;
+        // Redirecionando para a página de login após cadastro com sucesso
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         if (err.error && err.error.message) {

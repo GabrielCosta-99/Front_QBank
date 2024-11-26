@@ -5,9 +5,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastrarUsuarioComponent } from './pages/cadastrar-usuario/cadastrar-usuario.component';  // Adicionado
 
-// Importa o AuthGuard
-import { AuthGuard } from './services/auth.guard'; 
-
 export const routes: Routes = [
   // A Home pode ser acessada sem autenticação
   { path: '', component: HomeComponent },  // Página inicial
