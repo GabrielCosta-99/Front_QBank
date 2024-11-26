@@ -56,6 +56,11 @@ export class AuthService {
     return localStorage.getItem('authToken') !== null; // Retorna true se o token estiver no localStorage
   }
 
+  // Método para armazenar o token
+  storeToken(token: string): void {
+    localStorage.setItem('authToken', token); // Armazenando o token no localStorage
+  }
+
   // Método para fazer o logout
   logout(): void {
     localStorage.removeItem('authToken'); // Remove o token do localStorage
