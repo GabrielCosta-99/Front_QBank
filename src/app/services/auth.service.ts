@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
 
 export interface User {
   username: string;
@@ -25,7 +24,8 @@ export class AuthService {
 
   login(user: User): Observable<any> {
     const loginUrl = 'http://localhost:5049/api/login'; // Substitua pelo endpoint correto
-    return this.http.post(loginUrl, user).pipe(
+
+    return this.http.post<any>(loginUrl, user).pipe(
       catchError(error => {
         console.error('Erro no login:', error);
         return throwError('Erro ao fazer login, tente novamente!');
@@ -49,5 +49,15 @@ export class AuthService {
         return throwError('Erro ao cadastrar usuário, tente novamente!');
       })
     );
+  }
+
+  // Verificar se o usuário está autenticado (por exemplo, baseado em um token JWT)
+  isAuthenticated(): boolean {
+    return localStorage.getItem('authToken') !== null; // Retorna true se o token estiver no localStorage
+  }
+
+  // Método para fazer o logout
+  logout(): void {
+    localStorage.removeItem('authToken'); // Remove o token do localStorage
   }
 }

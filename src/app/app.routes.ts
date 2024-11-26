@@ -5,19 +5,19 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 
+// Importa o AuthGuard
+import { AuthGuard } from './services/auth.guard'; 
+
 export const routes: Routes = [
-  // Rota para o Login
-  { path: 'login', component: LoginComponent },
+  // A Home pode ser acessada sem autenticação
+  { path: '', component: HomeComponent },  // Redireciona para home se a URL estiver vazia
+  
+  // Página de Login
+  { path: 'login', component: LoginComponent },  
 
-  // Rota para a Home
-  { path: 'home', component: HomeComponent },
+  // Rota protegida para a página de Clients (só acessível se autenticado)
+  { path: 'clients', component: ClientsComponent, canActivate: [AuthGuard] },
 
-  // Rota para a página de Clients
-  { path: 'clients', component: ClientsComponent },
-
-  // Redireciona para a rota 'login' caso a URL seja acessada com um caminho vazio
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-
-  // Rota curinga para redirecionar em caso de URL inválida
+  // Redireciona para a página de login caso o usuário não esteja autenticado
   { path: '**', redirectTo: '/login' }
 ];

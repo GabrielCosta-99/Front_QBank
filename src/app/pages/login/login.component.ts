@@ -1,26 +1,46 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; // Importando o HttpClientModule no componente standalone
+import { FormsModule } from '@angular/forms'; // Apenas o FormsModule é necessário aqui
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],  // Adicionando HttpClientModule
+  imports: [FormsModule],  // Apenas o FormsModule necessário
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  user = '';
-  password = '';
+  user = ''; // Armazena o nome de usuário
+  password = ''; // Armazena a senha
+  errorMessage = ''; // Para armazenar e exibir mensagens de erro
+  loading = false; // Para exibir uma animação de carregamento enquanto o login está em andamento
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onLogin() {
-    this.authService.login({ username: this.user, password: this.password }).subscribe(
-      (response) => this.router.navigate(['/clients']),
-      error => console.error('Erro ao logar:', error)
-    );
+    if (this.user && this.password) { // Verifica se os campos não estão vazios
+      this.loading = true; // Ativa a animação de carregamento
+      this.authService.login({ username: this.user, password: this.password }).subscribe(
+        (response) => {
+          // Armazenar o token após o login bem-sucedido
+          this.authService.storeToken(response.token); // Armazena o token recebido da resposta
+          this.loading = false; // Desativa a animação de carregamento
+          this.router.navigate(['/clients']); // Redireciona para a página de clientes após o login bem-sucedido
+        },
+        (error) => {
+          this.loading = false; // Desativa a animação de carregamento
+          this.errorMessage = 'Erro ao fazer login. Verifique suas credenciais e tente novamente.'; // Exibe uma mensagem de erro
+          console.error('Erro ao logar:', error);
+        }
+      );
+    } else {
+      this.errorMessage = 'Por favor, preencha todos os campos.'; // Exibe erro caso os campos estejam vazios
+    }
+  }
+
+  // Limpa a mensagem de erro quando o usuário começar a digitar
+  onInput() {
+    this.errorMessage = '';
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importe o FormsModule
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router'; // Importa o Router para navegação
 
 // Interface para tipar os dados do usuário
 export interface UserData {
@@ -29,6 +30,7 @@ export interface UserData {
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/clients">Clientes</a></li>
           <li><a routerLink="/cadastrar-usuario">Cadastrar Usuário</a></li>
+          <li><a routerLink="/login">Login</a></li> <!-- Adiciona a rota de login -->
         </ul>
       </nav>
     </aside>
@@ -64,7 +66,7 @@ export class HomeComponent {
   };
   errorMessage: string = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {} // Injeta o Router
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -75,6 +77,7 @@ export class HomeComponent {
       (response) => {
         console.log('Usuário cadastrado com sucesso!', response);
         this.errorMessage = ''; // Limpa a mensagem de erro
+        this.router.navigate(['/']); // Redireciona para a página inicial após o cadastro
       },
       (error) => {
         console.error('Erro ao cadastrar usuário', error);
