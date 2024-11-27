@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common'; // Importar CommonModule
 import { FormsModule } from '@angular/forms'; // Importar FormsModule
+import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
 
 @Component({
   selector: 'app-cadastrar-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Adicionar os módulos necessários
+  imports: [CommonModule, FormsModule, HttpClientModule], // Adicionar HttpClientModule nas importações
   template: `
     <div class="form-container">
       <h2>Cadastrar Usuário</h2>
