@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Necessário para usar *ngIf
 import { RouterModule } from '@angular/router'; // Necessário para usar routerLink
+import { MenuComponent } from '../../components/menu/menu.component'; // Caminho correto para o MenuComponent
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule], // Importa CommonModule e RouterModule
+  imports: [CommonModule, RouterModule, MenuComponent], // Certifique-se de que MenuComponent está aqui
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

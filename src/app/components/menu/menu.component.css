@@ -1,0 +1,45 @@
+/* Estilo para o botão do menu */
+.menu-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para o menu lateral */
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000; /* Garante que o menu fique acima do conteúdo */
+}
+
+/* Estilo da lista no menu */
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+/* Estilo dos links no menu */
+.menu ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.menu ul li a:hover {
+  text-decoration: underline;
+}

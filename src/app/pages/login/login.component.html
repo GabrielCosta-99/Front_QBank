@@ -1,4 +1,10 @@
 <div class="login-container">
+  <!-- Botão para abrir/fechar o menu -->
+  <button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
+
+  <!-- Menu Lateral -->
+  <app-menu [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-menu>
+  
   <h2>Login</h2>
   
   <!-- Mensagem de erro -->
