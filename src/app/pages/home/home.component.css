@@ -147,11 +147,11 @@
 /* Estilos para a imagem */
 .image-container {
   text-align: center; /* Centraliza a imagem */
-  margin: 20px 0; /* Espaçamento ao redor da imagem */
+  margin-top: 10px;
 }
 
 .image-cartao {
-  max-width: 100%; /* A imagem vai ocupar 100% da largura disponível, mantendo a proporção */
-  height: auto; /* A altura se ajusta automaticamente */
+  max-width: 50%; /* A imagem vai ocupar 100% da largura disponível, mantendo a proporção */
+  height: 500px; /* A altura se ajusta automaticamente */
   border-radius: 8px; /* Opcional, para arredondar os cantos da imagem */
 }
