@@ -1,9 +1,6 @@
 <div class="login-container">
   <h2>Login</h2>
-  <!-- Mensagem de erro -->
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
+  
   
   <!-- Formulário de login -->
   <form (ngSubmit)="onLogin()">
@@ -12,6 +9,12 @@
 
     <label for="password">Senha</label>
     <input id="password" type="password" [(ngModel)]="password" name="password" required />
+
+    <!-- Mensagem de erro -->
+    <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+   </div>
+
 
     <div class="buttons">
     <button type="submit" class = "enter-button" [disabled]="loading">Entrar</button>
@@ -24,4 +27,6 @@
   <div *ngIf="loading" class="loading-spinner">
     Carregando...
   </div>
+  
+
 </div>

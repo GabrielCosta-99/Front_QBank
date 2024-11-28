@@ -8,7 +8,7 @@ import { MenuComponent } from '../../components/menu/menu.component'; // Importa
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule, MenuComponent], // Adicionando o MenuComponent aqui
+  imports: [FormsModule, CommonModule], // Adicionando o MenuComponent aqui
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

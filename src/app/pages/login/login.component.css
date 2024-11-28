@@ -94,13 +94,12 @@ button {
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  animation: spin 1s linear infinite;
+  
 }
 
-/*/* Animação do spinner */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Classe para ocultar o spinner */
+.loading-spinner.hidden {
+  opacity: 0;
 }
 
 
