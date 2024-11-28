@@ -1,12 +1,5 @@
 <div class="login-container">
-  <!-- Botão para abrir/fechar o menu -->
-  <button (click)="toggleMenu()" class="menu-button">☰ Menu</button>
-
-  <!-- Menu Lateral -->
-  <app-menu [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-menu>
-  
   <h2>Login</h2>
-  
   <!-- Mensagem de erro -->
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
@@ -20,7 +13,11 @@
     <label for="password">Senha</label>
     <input id="password" type="password" [(ngModel)]="password" name="password" required />
 
-    <button type="submit" [disabled]="loading">Entrar</button>
+    <div class="buttons">
+    <button type="submit" class = "enter-button" [disabled]="loading">Entrar</button>
+    <button type="button" class="menu-button" (click)="voltarAoMenu()">Voltar ao Menu</button>
+    </div> 
+    
   </form>
 
   <!-- Loading spinner durante a tentativa de login -->

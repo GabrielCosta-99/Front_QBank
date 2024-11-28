@@ -1,3 +1,80 @@
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.enter-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.enter-button:hover {
+  background-color: #45a049;
+}
+
+.menu-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.menu-button:hover {
+  background-color: #e53935;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+
+
 /* Mensagem de erro */
 .error-message {
   color: red;
@@ -20,11 +97,12 @@
   animation: spin 1s linear infinite;
 }
 
-/* Animação do spinner */
+/*/* Animação do spinner */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 
 /* Estilos para campos inválidos */
 .invalid {
@@ -45,3 +123,4 @@
     padding: 12px;
   }
 }
+

@@ -51,4 +51,8 @@ export class LoginComponent {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+
+  voltarAoMenu() {
+    this.router.navigate(['/']);
+  }
 }
