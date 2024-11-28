@@ -1,50 +1,135 @@
-/* Estilo para o menu */
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.menu ul li {
-  padding: 10px;
-}
-
-.menu ul li a {
-  text-decoration: none;
-  color: #000;
-  display: block;
-}
-
-/* Destaque para o link ativo no menu */
-.menu ul li a.active {
-  font-weight: bold;
-  color: #48920c; /* Destaque visual */
-}
-
-/* Menu lateral responsivo */
-.menu {
-  width: 80%; /* Em telas menores, ocupa 80% da largura */
-  max-width: 300px; /* Em telas maiores, não passa de 300px */
-}
-
-/* Tornar o layout responsivo */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
+/* ================================================
+   Estilos do Cabeçalho
+   ================================================ */
+   header {
+    background-color: #095000;
+    color: white;
+    padding: 20px;
+    text-align: center;
   }
-
-  header {
-    flex-direction: column; /* Empilha itens em telas menores */
-    align-items: center; /* Centraliza os itens no cabeçalho */
+  
+  /* ================================================
+     Estilos dos Botões
+     ================================================ */
+  button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
   }
-
+  
+  button:hover {
+    background-color: darkblue;
+  }
+  
+  /* ================================================
+     Estilos do Corpo da Página
+     ================================================ */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  /* ================================================
+     Estilos do Menu Lateral
+     ================================================ */
   .menu {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 200px;
-    background-color: #f7f7f7;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 80%; /* Em telas menores, ocupa 80% da largura */
+    max-width: 300px; /* Em telas maiores, não passa de 300px */
   }
-}
+  
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    padding: 10px;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+  }
+  
+  /* Destaque para o link ativo no menu */
+  .menu ul li a.active {
+    font-weight: bold;
+    color: #48920c; /* Destaque visual */
+  }
+  
+  /* ================================================
+     Menu Lateral Responsivo
+     ================================================ */
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    header {
+      flex-direction: column; /* Empilha itens em telas menores */
+      align-items: center; /* Centraliza os itens no cabeçalho */
+    }
+  
+    .menu {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 200px;
+      background-color: #f7f7f7;
+      border: 1px solid #ddd;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  /* ================================================
+     Estilos do Menu (Seção Principal)
+     ================================================ */
+  .main-content {
+    padding: 20px;
+  }
+  
+  /* ================================================
+     Estilos do Menu Responsivo
+     ================================================ */
+  .menu-button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu-button:hover {
+    background-color: #444;
+  }
+  
+  /* ================================================
+     Estilos do Menu Principal
+     ================================================ */
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    padding: 10px;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+  }
+  
+  /* Destaque para o link ativo no menu */
+  .menu ul li a.active {
+    font-weight: bold;
+    color: #48920c; /* Destaque visual */
+  }
+  
