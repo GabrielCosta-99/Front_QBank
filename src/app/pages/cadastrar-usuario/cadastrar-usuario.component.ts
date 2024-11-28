@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';  // Importando o AuthService
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Importar CommonModule
-import { FormsModule } from '@angular/forms'; // Importar FormsModule
-import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastrar-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule], // Adicionar HttpClientModule nas importações
+  imports: [CommonModule, FormsModule, HttpClientModule],
   template: `
     <div class="form-container">
       <h2>Cadastrar Usuário</h2>
       <form (ngSubmit)="cadastrarUsuario()" #usuarioForm="ngForm">
         <div>
-          <label for="nome">Nome:</label>
+          <label for="username">Nome:</label>
           <input
             type="text"
-            id="nome"
-            [(ngModel)]="usuario.Nome"
-            name="nome"
+            id="username"
+            [(ngModel)]="usuario.username"
+            name="username"
             required
           />
         </div>
@@ -40,25 +40,25 @@ import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientM
           <input
             type="email"
             id="email"
-            [(ngModel)]="usuario.Email"
+            [(ngModel)]="usuario.email"
             name="email"
             required
           />
         </div>
         <div>
-          <label for="senha">Senha:</label>
+          <label for="password">Senha:</label>
           <input
             type="password"
-            id="senha"
-            [(ngModel)]="usuario.Senha"
-            name="senha"
+            id="password"
+            [(ngModel)]="usuario.password"
+            name="password"
             required
             minlength="6"
           />
         </div>
         <div>
           <label for="tipoConta">Tipo de Conta:</label>
-          <select id="tipoConta" [(ngModel)]="usuario.TipoConta" name="tipoConta" required>
+          <select id="tipoConta" [(ngModel)]="usuario.tipoConta" name="tipoConta" required>
             <option value="Corrente">Corrente</option>
             <option value="Poupança">Poupança</option>
           </select>
@@ -76,21 +76,19 @@ import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientM
 })
 export class CadastrarUsuarioComponent {
   usuario = {
-    Nome: '',
+    username: '', // Alterado de 'Nome' para 'username'
     CPF: '',
-    Email: '',
-    Senha: '',
-    TipoConta: 'Corrente',
+    email: '',  // Alterado de 'Email' para 'email'
+    password: '',  // Alterado de 'Senha' para 'password'
+    tipoConta: 'Corrente',  // Adicionado 'tipoConta'
   };
   mensagemSucesso: string | null = null;
   mensagemErro: string | null = null;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   cadastrarUsuario() {
-    const apiUrl = 'http://localhost:5049/api/cadastrousuario'; // URL da API
-
-    this.http.post(apiUrl, this.usuario).subscribe({
+    this.authService.cadastrarUsuario(this.usuario).subscribe({
       next: (res: any) => {
         if (res.message) {
           this.mensagemSucesso = res.message; // Caso a API retorne uma mensagem personalizada
