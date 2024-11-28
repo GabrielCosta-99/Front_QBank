@@ -22,7 +22,7 @@ export interface UserData {
 export class AuthService {
   // Definindo a URL da API para o cadastro de usuário
   private cadastroUsuarioUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api/cadastrousuario';
-  private loginUrl = 'http://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api/login';
+  private loginUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api/login';
 
   constructor(private http: HttpClient) {}
 

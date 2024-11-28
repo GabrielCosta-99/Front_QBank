@@ -2,10 +2,14 @@
    Estilos do Cabeçalho
    ================================================ */
    header {
-    background-color: #095000;
+    background-color: #095000; /* Cor de fundo do cabeçalho */
     color: white;
     padding: 20px;
     text-align: center;
+  }
+  
+  header h1, header h2, header h3 {
+    margin: 0; /* Remove margens extras dos títulos */
   }
   
   /* ================================================
@@ -17,6 +21,7 @@
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   button:hover {
@@ -44,6 +49,7 @@
   .menu ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
   }
   
   .menu ul li {
@@ -54,6 +60,11 @@
     text-decoration: none;
     color: #000;
     display: block;
+    transition: color 0.3s ease;
+  }
+  
+  .menu ul li a:hover {
+    color: #48920c; /* Cor de destaque ao passar o mouse */
   }
   
   /* Destaque para o link ativo no menu */
@@ -103,6 +114,7 @@
     padding: 10px;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   .menu-button:hover {
@@ -127,9 +139,19 @@
     display: block;
   }
   
-  /* Destaque para o link ativo no menu */
   .menu ul li a.active {
     font-weight: bold;
     color: #48920c; /* Destaque visual */
   }
   
+/* Estilos para a imagem */
+.image-container {
+  text-align: center; /* Centraliza a imagem */
+  margin: 20px 0; /* Espaçamento ao redor da imagem */
+}
+
+.image-cartao {
+  max-width: 100%; /* A imagem vai ocupar 100% da largura disponível, mantendo a proporção */
+  height: auto; /* A altura se ajusta automaticamente */
+  border-radius: 8px; /* Opcional, para arredondar os cantos da imagem */
+}

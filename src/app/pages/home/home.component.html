@@ -9,6 +9,12 @@
   <!-- Menu -->
   <app-menu [menuOpen]="menuOpen" (menuToggle)="toggleMenu()"></app-menu>
 
+  <!-- Área para a imagem -->
+  <div class="image-container">
+    <img src="assets/Image-cartão.jpg" alt="Imagem do Cartão" class="image-cartao">
+
+  </div>
+
   <!-- Área dinâmica onde as rotas serão carregadas -->
   <main>
     <router-outlet></router-outlet>

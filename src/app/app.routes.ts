@@ -16,5 +16,7 @@ export const routes: Routes = [
   { path: 'cadastrar-usuario', component: CadastrarUsuarioComponent },  // Rota sem AuthGuard
 
   // Redireciona para a página de login caso o usuário não esteja autenticado
-  { path: '**', redirectTo: '/login' }
+  // A chave "path: '**'" redireciona qualquer URL não encontrada para /login, 
+  // mas agora não afetará mais arquivos estáticos como imagens, pois estamos tratando o redirecionamento de forma mais controlada
+  { path: '**', redirectTo: '/login', pathMatch: 'full' } 
 ];
