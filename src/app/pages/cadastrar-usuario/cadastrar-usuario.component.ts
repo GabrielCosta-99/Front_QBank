@@ -3,12 +3,11 @@ import { AuthService } from '../../services/auth.service';  // Importando o Auth
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-cadastrar-usuario',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule],
   template: `
     <div class="form-container">
       <h2>Cadastrar Usuário</h2>

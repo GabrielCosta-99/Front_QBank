@@ -3,7 +3,6 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Importando o CommonModule
-import { MenuComponent } from '../../components/menu/menu.component'; // Importando o MenuComponent
 
 @Component({
   selector: 'app-login',
