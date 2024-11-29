@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientService {
-  private apiUrl = 'https://api.exemplo.com';
+  private apiUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net';
 
   constructor(private http: HttpClient) {}
 
