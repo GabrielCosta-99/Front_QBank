@@ -20,10 +20,12 @@ export interface UserData {
   providedIn: 'root',
 })
 export class AuthService {
-  // Definindo a URL da API para o cadastro de usuário
-  private cadastroUsuarioUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api/cadastrousuario';
-  private loginUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api/login';
+  // Definindo a URL base da API
+  private apiUrl = 'https://qbankapi1-axb8gnbvb6cjdqg9.brazilsouth-01.azurewebsites.net/api';
 
+  // Definindo os endpoints de cadastro e login
+  private cadastroUsuarioUrl = `${this.apiUrl}/cadastrousuario`;
+  private loginUrl = `${this.apiUrl}/login`;
   constructor(private http: HttpClient) {}
 
   // Método de login
